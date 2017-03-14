@@ -50,9 +50,7 @@ endif;
   </div>
 </nav>
 
-<div class="card">
-     <h1>This is the blank home page.</h1>
-</div>
+<center><h1>This is the home page</h1></center>
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </body>
