@@ -3,6 +3,7 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use Cake\Event\Event;
+use Cake\I18n\Date;
 /**
  * Users Controller
  *
@@ -54,8 +55,11 @@ class UsersController extends AppController
     public function add()
     {
         $user = $this->Users->newEntity();
+        $date = Date::now();
         if ($this->request->is('post')) {
             $user = $this->Users->patchEntity($user, $this->request->getData());
+            $user['date_created'] = $date;
+            $user['date_modified'] = $date;
             if ($this->Users->save($user)) {
                 $this->Flash->success(__('The user has been saved.'));
 
@@ -79,8 +83,10 @@ class UsersController extends AppController
         $user = $this->Users->get($id, [
             'contain' => []
         ]);
+        $date = Date::now();
         if ($this->request->is(['patch', 'post', 'put'])) {
             $user = $this->Users->patchEntity($user, $this->request->getData());
+            $user['date_modified'] = $date;
             if ($this->Users->save($user)) {
                 $this->Flash->success(__('The user has been saved.'));
 
