@@ -20,6 +20,14 @@
             <td><?= h($user->username) ?></td>
         </tr>
         <tr>
+            <th scope="row"><?= __('First Name') ?></th>
+            <td><?= h($user->first_name) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Last Name') ?></th>
+            <td><?= h($user->last_name) ?></td>
+        </tr>
+        <tr>
             <th scope="row"><?= __('Password') ?></th>
             <td><?= h($user->password) ?></td>
         </tr>
@@ -32,12 +40,16 @@
             <td><?= $this->Number->format($user->id) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Created') ?></th>
-            <td><?= h($user->created) ?></td>
+            <th scope="row"><?= __('Date Created') ?></th>
+            <td><?= h($user->date_created) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Modified') ?></th>
-            <td><?= h($user->modified) ?></td>
+            <th scope="row"><?= __('Date Modified') ?></th>
+            <td><?= h($user->date_modified) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Active') ?></th>
+            <td><?= $user->active ? __('Yes') : __('No'); ?></td>
         </tr>
     </table>
 </div>
