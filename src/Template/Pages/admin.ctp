@@ -43,15 +43,26 @@ endif;
       <a class="navbar-brand" href="/agileproject">Agile Project</a>
     </div>
     <ul class="nav navbar-nav">
-      <li><a href="/agileproject">Home</a></li>
-      <li><a href="/agileproject/pages/game">Game</a></li>
-      <li class="active"><a href="/agileproject/pages/admin">Admin</a></li>
+      <li><a href="/Agile_ITIN_4440-001">Home</a></li>
+      <li><a href="/Agile_ITIN_4440-001/pages/game">Game</a></li>
+      <li class="active"><a href="/Agile_ITIN_4440-001/pages/admin">Admin</a></li>
     </ul>
   </div>
 </nav>
 
 <div class="card">
-     <h1>This is the blank admin page.</h1>
+     <h1>Administrative Links:</h1>
+</div>
+<div class="card">
+  <!-- TODO: make these look like buttons -->
+  <ul>
+    <li style="display: inline"><a href="/Agile_ITIN_4440-001/users">Manage Users</a></li>
+    <li style="display: inline"><a href="/Agile_ITIN_4440-001/questions">Manage Questions</a></li>
+    <li style="display: inline"><a href="/Agile_ITIN_4440-001/answers">Manage Answers</a></li>
+    <!-- <li style="display: inline"><a href="/school/Agile_ITIN_4440-001/users">Manage Users</a></li>
+    <li style="display: inline"><a href="/school/Agile_ITIN_4440-001/questions">Manage Questions</a></li>
+    <li style="display: inline"><a href="/school/Agile_ITIN_4440-001/answers">Manage Answers</a></li> -->
+  </ul>
 </div>
 
 
