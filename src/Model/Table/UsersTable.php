@@ -79,4 +79,12 @@ class UsersTable extends Table
 
         return $rules;
     }
+
+    public function findActive(Query $query){
+      return $this->find()
+        ->distinct(['Users.id'])
+        ->matching('Users.id', function ($q){
+          return $q->where(['Users.active' => 1]);
+        });
+    }
 }

@@ -44,12 +44,12 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" href="/agileproject">Agile Project</a>
+        <a class="navbar-brand" href="/Agile_ITIN_4440-001">Agile Project</a>
       </div>
       <ul class="nav navbar-nav">
-        <li class="active"><a href="/agileproject">Home</a></li>
-        <li><a href="/agileproject/pages/game">Game</a></li>
-        <li><a href="/agileproject/pages/admin">Admin</a></li>
+        <li class="active"><a href="/Agile_ITIN_4440-001">Home</a></li>
+        <li><a href="/Agile_ITIN_4440-001/pages/game">Game</a></li>
+        <li><a href="/Agile_ITIN_4440-001/admin/">Admin</a></li>
       </ul>
     </div>
   </nav>

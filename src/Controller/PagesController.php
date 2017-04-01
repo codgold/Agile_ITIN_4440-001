@@ -66,4 +66,16 @@ class PagesController extends AppController
             throw new NotFoundException();
         }
     }
+
+    
+
+    // public function classAverage(){
+    //   $this->loadModel('Users');
+    //   $this->loadModel('CompletedQuestions');
+    //   $active = $this->Users->active();
+    //   $completedqs = $this->CompletedQuestions->find('completed', ['active' => $active]);
+    //   foreach ($completedqs as $completedq){
+    //     $sum = $sum + $completedq.correct
+    //   }
+    // }
 }
