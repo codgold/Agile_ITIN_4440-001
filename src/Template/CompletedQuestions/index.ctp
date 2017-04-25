@@ -13,6 +13,8 @@
         <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Questions'), ['controller' => 'Questions', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Question'), ['controller' => 'Questions', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Games'), ['controller' => 'Games', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Game'), ['controller' => 'Games', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="completedQuestions index large-9 medium-8 columns content">
@@ -22,10 +24,11 @@
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('answer_id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('user_id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('question_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('date_answered') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('correct') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('user_id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('question_id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('game_id') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -34,10 +37,11 @@
             <tr>
                 <td><?= $this->Number->format($completedQuestion->id) ?></td>
                 <td><?= $completedQuestion->has('answer') ? $this->Html->link($completedQuestion->answer->id, ['controller' => 'Answers', 'action' => 'view', $completedQuestion->answer->id]) : '' ?></td>
-                <td><?= $completedQuestion->has('user') ? $this->Html->link($completedQuestion->user->id, ['controller' => 'Users', 'action' => 'view', $completedQuestion->user->id]) : '' ?></td>
-                <td><?= $completedQuestion->has('question') ? $this->Html->link($completedQuestion->question->id, ['controller' => 'Questions', 'action' => 'view', $completedQuestion->question->id]) : '' ?></td>
                 <td><?= h($completedQuestion->date_answered) ?></td>
                 <td><?= h($completedQuestion->correct) ?></td>
+                <td><?= $completedQuestion->has('user') ? $this->Html->link($completedQuestion->user->id, ['controller' => 'Users', 'action' => 'view', $completedQuestion->user->id]) : '' ?></td>
+                <td><?= $completedQuestion->has('question') ? $this->Html->link($completedQuestion->question->id, ['controller' => 'Questions', 'action' => 'view', $completedQuestion->question->id]) : '' ?></td>
+                <td><?= $completedQuestion->has('game') ? $this->Html->link($completedQuestion->game->id, ['controller' => 'Games', 'action' => 'view', $completedQuestion->game->id]) : '' ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $completedQuestion->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $completedQuestion->id]) ?>

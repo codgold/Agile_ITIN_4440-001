@@ -3,21 +3,22 @@
   * @var \App\View\AppView $this
   */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
+<!-- <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Html->link(__('New Answer'), ['action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Questions'), ['controller' => 'Questions', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Question'), ['controller' => 'Questions', 'action' => 'add']) ?></li>
     </ul>
-</nav>
-<div class="answers index large-9 medium-8 columns content">
+</nav> -->
+<div class="answers index large-9 medium-8 columns content" style="background:white; padding:30px; border-radius:4px">
     <h3><?= __('Answers') ?></h3>
-    <table cellpadding="0" cellspacing="0">
+    <table class="table" cellpadding="0" cellspacing="0">
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('question_id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('answer_text') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -26,6 +27,7 @@
             <tr>
                 <td><?= $this->Number->format($answer->id) ?></td>
                 <td><?= $answer->has('question') ? $this->Html->link($answer->question->id, ['controller' => 'Questions', 'action' => 'view', $answer->question->id]) : '' ?></td>
+                <td><?= $answer->answer_text ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $answer->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $answer->id]) ?>

@@ -19,7 +19,8 @@ class CompletedQuestionsControllerTest extends IntegrationTestCase
         'app.completed_questions',
         'app.answers',
         'app.questions',
-        'app.users'
+        'app.users',
+        'app.games'
     ];
 
     /**

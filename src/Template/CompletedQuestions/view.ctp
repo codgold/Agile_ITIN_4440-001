@@ -16,6 +16,8 @@
         <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('List Questions'), ['controller' => 'Questions', 'action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Question'), ['controller' => 'Questions', 'action' => 'add']) ?> </li>
+        <li><?= $this->Html->link(__('List Games'), ['controller' => 'Games', 'action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('New Game'), ['controller' => 'Games', 'action' => 'add']) ?> </li>
     </ul>
 </nav>
 <div class="completedQuestions view large-9 medium-8 columns content">
@@ -32,6 +34,10 @@
         <tr>
             <th scope="row"><?= __('Question') ?></th>
             <td><?= $completedQuestion->has('question') ? $this->Html->link($completedQuestion->question->id, ['controller' => 'Questions', 'action' => 'view', $completedQuestion->question->id]) : '' ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Game') ?></th>
+            <td><?= $completedQuestion->has('game') ? $this->Html->link($completedQuestion->game->id, ['controller' => 'Games', 'action' => 'view', $completedQuestion->game->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Id') ?></th>

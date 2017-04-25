@@ -3,7 +3,7 @@
   * @var \App\View\AppView $this
   */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
+<!-- <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Html->link(__('Edit Question'), ['action' => 'edit', $question->id]) ?> </li>
@@ -15,23 +15,25 @@
         <li><?= $this->Html->link(__('List Completed Questions'), ['controller' => 'CompletedQuestions', 'action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Completed Question'), ['controller' => 'CompletedQuestions', 'action' => 'add']) ?> </li>
     </ul>
-</nav>
-<div class="questions view large-9 medium-8 columns content">
-    <h3><?= h($question->id) ?></h3>
-    <table class="vertical-table">
+</nav> -->
+<div class="questions view large-9 medium-8 columns content" style="background:white; padding:30px">
+    <h3>Question Dashboard</h3>
+    <div class="row" >
+      <table class="table">
+        <th scope="col"><?= __('Id') ?></th>
+        <th scope="col"><?= __('Question Text') ?></th>
+        <th scope="col"><?= __('Action') ?></th>
         <tr>
-            <th scope="row"><?= __('Id') ?></th>
-            <td><?= $this->Number->format($question->id) ?></td>
+          <td><?= $question->id ?></td>
+          <td><?= $question->question_text ?></td>
+          <td><?= $this->Html->link(__('Edit'), ['controller' => 'Questions', 'action' => 'edit', $question->id]) ?></td>
         </tr>
-    </table>
-    <div class="row">
-        <h4><?= __('Question Text') ?></h4>
-        <?= $this->Text->autoParagraph(h($question->question_text)); ?>
+      </table>
     </div>
-    <div class="related">
+    <div class="row" >
         <h4><?= __('Related Answers') ?></h4>
         <?php if (!empty($question->answers)): ?>
-        <table cellpadding="0" cellspacing="0">
+        <table class="table" cellpadding="0" cellspacing="0">
             <tr>
                 <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Question Id') ?></th>
@@ -53,10 +55,10 @@
         </table>
         <?php endif; ?>
     </div>
-    <div class="related">
+    <div class="row" >
         <h4><?= __('Related Completed Questions') ?></h4>
         <?php if (!empty($question->completed_questions)): ?>
-        <table cellpadding="0" cellspacing="0">
+        <table class="table" cellpadding="0" cellspacing="0">
             <tr>
                 <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Answer Id') ?></th>

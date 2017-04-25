@@ -10,6 +10,15 @@ use App\Controller\AppController;
 class GamesController extends AppController
 {
 
+    public function game()
+    {
+      $id = $this->getUserId();
+      // debug('User ID: ' . $id);
+
+      $this->set(compact('id'));
+    }
+
+
     /**
      * Index method
      *
@@ -17,6 +26,10 @@ class GamesController extends AppController
      */
     public function index()
     {
+        if($this->Auth->user('role') == 'student'){
+          $this->Flash->error('You are not authorized to access this location');
+          return $this->redirect(['controller' => 'Pages', 'action' => 'display']);
+        }
         $this->paginate = [
             'contain' => ['Users']
         ];
@@ -35,6 +48,10 @@ class GamesController extends AppController
      */
     public function view($id = null)
     {
+        if($this->Auth->user('role') == 'student'){
+          $this->Flash->error('You are not authorized to access this location');
+          return $this->redirect(['controller' => 'Pages', 'action' => 'display']);
+        }
         $game = $this->Games->get($id, [
             'contain' => ['Users']
         ]);
@@ -50,6 +67,10 @@ class GamesController extends AppController
      */
     public function add()
     {
+        if($this->Auth->user('role') == 'student'){
+          $this->Flash->error('You are not authorized to access this location');
+          return $this->redirect(['controller' => 'Pages', 'action' => 'display']);
+        }
         $game = $this->Games->newEntity();
         if ($this->request->is('post')) {
             $game = $this->Games->patchEntity($game, $this->request->getData());
@@ -74,6 +95,11 @@ class GamesController extends AppController
      */
     public function edit($id = null)
     {
+        if($this->Auth->user('role') == 'student'){
+          $this->Flash->error('You are not authorized to access this location');
+          return $this->redirect(['controller' => 'Pages', 'action' => 'display']);
+        }
+
         $game = $this->Games->get($id, [
             'contain' => []
         ]);
@@ -100,6 +126,11 @@ class GamesController extends AppController
      */
     public function delete($id = null)
     {
+        if($this->Auth->user('role') != 'admin'){
+          $this->Flash->error('You are not authorized to perform this action');
+          return $this->redirect(['controller' => 'Pages', 'action' => 'display']);
+        }
+
         $this->request->allowMethod(['post', 'delete']);
         $game = $this->Games->get($id);
         if ($this->Games->delete($game)) {
@@ -109,5 +140,16 @@ class GamesController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
+    }
+
+    public function getUserId(){
+      $this->loadModel('Users');
+      $user = $this->Users->find()
+              ->where(['id' => $this->Auth->user('id')])
+              ->toArray();
+
+      $id = $user[0]['id'];
+      return $id;
+
     }
 }

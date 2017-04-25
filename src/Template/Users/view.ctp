@@ -3,18 +3,10 @@
   * @var \App\View\AppView $this
   */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('Edit User'), ['action' => 'edit', $user->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete User'), ['action' => 'delete', $user->id], ['confirm' => __('Are you sure you want to delete # {0}?', $user->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List Users'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New User'), ['action' => 'add']) ?> </li>
-    </ul>
-</nav>
-<div class="users view large-9 medium-8 columns content">
-    <h3><?= h($user->id) ?></h3>
-    <table class="vertical-table">
+
+<div class="users view large-9 medium-8 columns content" style="background:white; border-radius:4px; padding:30px">
+    <h3><?= h($user->username) ?></h3>
+    <table class="table">
         <tr>
             <th scope="row"><?= __('Username') ?></th>
             <td><?= h($user->username) ?></td>
@@ -27,10 +19,10 @@
             <th scope="row"><?= __('Last Name') ?></th>
             <td><?= h($user->last_name) ?></td>
         </tr>
-        <tr>
+        <!-- <tr>
             <th scope="row"><?= __('Password') ?></th>
             <td><?= h($user->password) ?></td>
-        </tr>
+        </tr> -->
         <tr>
             <th scope="row"><?= __('Role') ?></th>
             <td><?= h($user->role) ?></td>
@@ -52,4 +44,9 @@
             <td><?= $user->active ? __('Yes') : __('No'); ?></td>
         </tr>
     </table>
+</div>
+<div class="row" style="padding:20px">
+  <center>
+    <a href="../" class="btn btn-info" role="button" style="padding:14px 50px">Cancel</a>
+  </center>
 </div>

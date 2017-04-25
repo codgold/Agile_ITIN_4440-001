@@ -6,7 +6,8 @@ use App\Controller\AppController;
 /**
  * CompletedQuestions Controller
  *
- * @property \App\Model\Table\CompletedQuestionsTable $CompletedQuestions */
+ * @property \App\Model\Table\CompletedQuestionsTable $CompletedQuestions
+ */
 class CompletedQuestionsController extends AppController
 {
 
@@ -18,7 +19,7 @@ class CompletedQuestionsController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Answers', 'Users', 'Questions']
+            'contain' => ['Answers', 'Users', 'Questions', 'Games']
         ];
         $completedQuestions = $this->paginate($this->CompletedQuestions);
 
@@ -36,7 +37,7 @@ class CompletedQuestionsController extends AppController
     public function view($id = null)
     {
         $completedQuestion = $this->CompletedQuestions->get($id, [
-            'contain' => ['Answers', 'Users', 'Questions']
+            'contain' => ['Answers', 'Users', 'Questions', 'Games']
         ]);
 
         $this->set('completedQuestion', $completedQuestion);
@@ -63,7 +64,8 @@ class CompletedQuestionsController extends AppController
         $answers = $this->CompletedQuestions->Answers->find('list', ['limit' => 200]);
         $users = $this->CompletedQuestions->Users->find('list', ['limit' => 200]);
         $questions = $this->CompletedQuestions->Questions->find('list', ['limit' => 200]);
-        $this->set(compact('completedQuestion', 'answers', 'users', 'questions'));
+        $games = $this->CompletedQuestions->Games->find('list', ['limit' => 200]);
+        $this->set(compact('completedQuestion', 'answers', 'users', 'questions', 'games'));
         $this->set('_serialize', ['completedQuestion']);
     }
 
@@ -91,7 +93,8 @@ class CompletedQuestionsController extends AppController
         $answers = $this->CompletedQuestions->Answers->find('list', ['limit' => 200]);
         $users = $this->CompletedQuestions->Users->find('list', ['limit' => 200]);
         $questions = $this->CompletedQuestions->Questions->find('list', ['limit' => 200]);
-        $this->set(compact('completedQuestion', 'answers', 'users', 'questions'));
+        $games = $this->CompletedQuestions->Games->find('list', ['limit' => 200]);
+        $this->set(compact('completedQuestion', 'answers', 'users', 'questions', 'games'));
         $this->set('_serialize', ['completedQuestion']);
     }
 

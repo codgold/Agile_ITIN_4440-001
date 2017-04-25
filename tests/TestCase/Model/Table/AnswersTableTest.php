@@ -12,8 +12,10 @@ class AnswersTableTest extends TestCase
 {
 
     /**
-     * Test subject     *
-     * @var \App\Model\Table\AnswersTable     */
+     * Test subject
+     *
+     * @var \App\Model\Table\AnswersTable
+     */
     public $Answers;
 
     /**
@@ -23,7 +25,10 @@ class AnswersTableTest extends TestCase
      */
     public $fixtures = [
         'app.answers',
-        'app.questions'
+        'app.questions',
+        'app.completed_questions',
+        'app.users',
+        'app.games'
     ];
 
     /**
@@ -34,7 +39,9 @@ class AnswersTableTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $config = TableRegistry::exists('Answers') ? [] : ['className' => 'App\Model\Table\AnswersTable'];        $this->Answers = TableRegistry::get('Answers', $config);    }
+        $config = TableRegistry::exists('Answers') ? [] : ['className' => 'App\Model\Table\AnswersTable'];
+        $this->Answers = TableRegistry::get('Answers', $config);
+    }
 
     /**
      * tearDown method

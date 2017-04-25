@@ -3,28 +3,21 @@
   * @var \App\View\AppView $this
   */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $answer->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $answer->id)]
-            )
-        ?></li>
-        <li><?= $this->Html->link(__('List Answers'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Questions'), ['controller' => 'Questions', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Question'), ['controller' => 'Questions', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
-<div class="answers form large-9 medium-8 columns content">
-    <?= $this->Form->create($answer) ?>
-    <fieldset>
-        <legend><?= __('Edit Answer') ?></legend>
-        <?php
-            echo $this->Form->control('answer_text');
-        ?>
-    </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
-    <?= $this->Form->end() ?>
+
+
+<div class="row" id="basic-form" style="background:white; border-radius:4px">
+  <div class="col-sm-12">
+    <?= $this->Form->create($answer[0]) ?>
+  </div>
+  <div class="col-sm-12 col-md-6 col-md-offset-3" style="">
+    <?= $this->Form->input('answer_text', ['class' => 'form-control', 'label' => 'Answer Text']) ?>
+  </div>
+</div>
+<div class="row" style="padding:20px">
+  <center>
+    <!-- <button type="cancel" class="btn btn-info"><?= $this->Html->link('Cancel', array('controller' => 'answers', 'action' => 'index')) ?></button> -->
+    <a href="http://104.236.217.201/agileproject/answers" class="btn btn-info" role="button" style="padding:14px 50px">Cancel</a>
+    <label> </label>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </center>
 </div>

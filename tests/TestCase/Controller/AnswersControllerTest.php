@@ -17,7 +17,10 @@ class AnswersControllerTest extends IntegrationTestCase
      */
     public $fixtures = [
         'app.answers',
-        'app.questions'
+        'app.questions',
+        'app.completed_questions',
+        'app.users',
+        'app.games'
     ];
 
     /**

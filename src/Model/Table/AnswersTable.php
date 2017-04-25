@@ -18,7 +18,8 @@ use Cake\Validation\Validator;
  * @method \App\Model\Entity\Answer patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
  * @method \App\Model\Entity\Answer[] patchEntities($entities, array $data, array $options = [])
  * @method \App\Model\Entity\Answer findOrCreate($search, callable $callback = null, $options = [])
- */class AnswersTable extends Table
+ */
+class AnswersTable extends Table
 {
 
     /**
@@ -50,9 +51,12 @@ use Cake\Validation\Validator;
     public function validationDefault(Validator $validator)
     {
         $validator
-            ->integer('id')            ->allowEmpty('id', 'create');
+            ->integer('id')
+            ->allowEmpty('id', 'create');
+
         $validator
             ->allowEmpty('answer_text');
+
         return $validator;
     }
 

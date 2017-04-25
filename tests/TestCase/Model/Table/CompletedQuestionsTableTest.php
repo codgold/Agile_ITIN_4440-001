@@ -12,8 +12,10 @@ class CompletedQuestionsTableTest extends TestCase
 {
 
     /**
-     * Test subject     *
-     * @var \App\Model\Table\CompletedQuestionsTable     */
+     * Test subject
+     *
+     * @var \App\Model\Table\CompletedQuestionsTable
+     */
     public $CompletedQuestions;
 
     /**
@@ -25,7 +27,8 @@ class CompletedQuestionsTableTest extends TestCase
         'app.completed_questions',
         'app.answers',
         'app.questions',
-        'app.users'
+        'app.users',
+        'app.games'
     ];
 
     /**
@@ -36,7 +39,9 @@ class CompletedQuestionsTableTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $config = TableRegistry::exists('CompletedQuestions') ? [] : ['className' => 'App\Model\Table\CompletedQuestionsTable'];        $this->CompletedQuestions = TableRegistry::get('CompletedQuestions', $config);    }
+        $config = TableRegistry::exists('CompletedQuestions') ? [] : ['className' => 'App\Model\Table\CompletedQuestionsTable'];
+        $this->CompletedQuestions = TableRegistry::get('CompletedQuestions', $config);
+    }
 
     /**
      * tearDown method

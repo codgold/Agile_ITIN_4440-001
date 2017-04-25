@@ -2,7 +2,7 @@
 <?= $this->Html->css('sb-admin.css'); ?>
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-      
+
   </div>
 
 </div>
@@ -15,11 +15,11 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Dashboard <small>Statistics Overview</small>
+                            Dashboard <small>ISC Dashboard</small>
                         </h1>
                         <ol class="breadcrumb">
                             <li class="active">
-                                <i class="fa fa-dashboard"></i> Dashboard
+                                <i class="fa fa-dashboard"></i> Admin Panel
                             </li>
                         </ol>
                     </div>
@@ -37,14 +37,16 @@
                                         <i class="fa fa-comments fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge">26</div>
-                                        <div>New Comments!</div>
+                                        <div class="huge">10</div>
+                                        <div>New Quizzes completed!</div>
                                     </div>
                                 </div>
                             </div>
                             <a href="#">
                                 <div class="panel-footer">
-                                    <span class="pull-left">View Details</span>
+                                    <span class="pull-left"><form action="http://google.com">
+    <input type="submit" value="View Quizzes!" />
+</form></span>
                                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                     <div class="clearfix"></div>
                                 </div>
@@ -60,13 +62,14 @@
                                     </div>
                                     <div class="col-xs-9 text-right">
                                         <div class="huge">12</div>
-                                        <div>New Tasks!</div>
+                                        <div>New Students!</div>
                                     </div>
                                 </div>
                             </div>
                             <a href="#">
                                 <div class="panel-footer">
-                                    <span class="pull-left">View Details</span>
+                                    <span class="pull-left"><form action="http://google.com">
+    <input type="submit" value="View Students!" /></form></span>
                                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                     <div class="clearfix"></div>
                                 </div>
@@ -81,14 +84,15 @@
                                         <i class="fa fa-shopping-cart fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge">124</div>
-                                        <div>New Orders!</div>
+                                        <div class="huge">6</div>
+                                        <div>Category Data!</div>
                                     </div>
                                 </div>
                             </div>
                             <a href="#">
                                 <div class="panel-footer">
-                                    <span class="pull-left">View Details</span>
+                                    <span class="pull-left"><form action="http://google.com">
+    <input type="submit" value="View Scores!" /></form></span>
                                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                     <div class="clearfix"></div>
                                 </div>
@@ -103,14 +107,15 @@
                                         <i class="fa fa-support fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge">13</div>
-                                        <div>Support Tickets!</div>
+                                        <div class="huge">NEW</div>
+                                        <div>Analytics</div>
                                     </div>
                                 </div>
                             </div>
                             <a href="#">
                                 <div class="panel-footer">
-                                    <span class="pull-left">View Details</span>
+                                    <span class="pull-left"><form action="http://google.com">
+    <input type="submit" value="View Analytics!" /></form></span>
                                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                     <div class="clearfix"></div>
                                 </div>
@@ -151,41 +156,41 @@
                     <div class="col-lg-4">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-clock-o fa-fw"></i> Tasks Panel</h3>
+                                <h3 class="panel-title"><i class="fa fa-clock-o fa-fw"></i> Quizzes Completed</h3>
                             </div>
                             <div class="panel-body">
                                 <div class="list-group">
                                     <a href="#" class="list-group-item">
                                         <span class="badge">just now</span>
-                                        <i class="fa fa-fw fa-calendar"></i> Calendar updated
+                                        <i class="fa fa-fw fa-calendar"></i> jramirez
                                     </a>
                                     <a href="#" class="list-group-item">
                                         <span class="badge">4 minutes ago</span>
-                                        <i class="fa fa-fw fa-comment"></i> Commented on a post
+                                        <i class="fa fa-fw fa-comment"></i> ttrang
                                     </a>
                                     <a href="#" class="list-group-item">
                                         <span class="badge">23 minutes ago</span>
-                                        <i class="fa fa-fw fa-truck"></i> Order 392 shipped
+                                        <i class="fa fa-fw fa-truck"></i> jromano
                                     </a>
                                     <a href="#" class="list-group-item">
                                         <span class="badge">46 minutes ago</span>
-                                        <i class="fa fa-fw fa-money"></i> Invoice 653 has been paid
+                                        <i class="fa fa-fw fa-money"></i> krodriguez21
                                     </a>
                                     <a href="#" class="list-group-item">
                                         <span class="badge">1 hour ago</span>
-                                        <i class="fa fa-fw fa-user"></i> A new user has been added
+                                        <i class="fa fa-fw fa-user"></i> jlua42
                                     </a>
                                     <a href="#" class="list-group-item">
                                         <span class="badge">2 hours ago</span>
-                                        <i class="fa fa-fw fa-check"></i> Completed task: "pick up dry cleaning"
+                                        <i class="fa fa-fw fa-check"></i> Ana Patra
                                     </a>
                                     <a href="#" class="list-group-item">
                                         <span class="badge">yesterday</span>
-                                        <i class="fa fa-fw fa-globe"></i> Saved the world
+                                        <i class="fa fa-fw fa-globe"></i> kloee2
                                     </a>
                                     <a href="#" class="list-group-item">
                                         <span class="badge">two days ago</span>
-                                        <i class="fa fa-fw fa-check"></i> Completed task: "fix error on sales page"
+                                        <i class="fa fa-fw fa-check"></i> John Smith
                                     </a>
                                 </div>
                                 <div class="text-right">
@@ -197,7 +202,7 @@
                     <div class="col-lg-4">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Transactions Panel</h3>
+                                <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Category Scores</h3>
                             </div>
                             <div class="panel-body">
                                 <div class="table-responsive">
@@ -276,4 +281,3 @@
 
         </div>
         <!-- /#page-wrapper -->
-

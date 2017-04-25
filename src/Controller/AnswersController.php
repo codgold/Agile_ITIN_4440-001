@@ -6,7 +6,8 @@ use App\Controller\AppController;
 /**
  * Answers Controller
  *
- * @property \App\Model\Table\AnswersTable $Answers */
+ * @property \App\Model\Table\AnswersTable $Answers
+ */
 class AnswersController extends AppController
 {
 
@@ -17,6 +18,10 @@ class AnswersController extends AppController
      */
     public function index()
     {
+        if($this->Auth->user('role') == 'student'){
+          $this->Flash->error('You are not authorized to access this location');
+          return $this->redirect(['controller' => 'Pages', 'action' => 'display']);
+        }
         $this->paginate = [
             'contain' => ['Questions']
         ];
@@ -35,9 +40,15 @@ class AnswersController extends AppController
      */
     public function view($id = null)
     {
-        $answer = $this->Answers->get($id, [
-            'contain' => ['Questions']
-        ]);
+        if($this->Auth->user('role') == 'student'){
+          $this->Flash->error('You are not authorized to access this location');
+          return $this->redirect(['controller' => 'Pages', 'action' => 'display']);
+        }
+        $answer = $this->Answers->find()
+                  ->where(['id' => $id])
+                  ->toArray();
+
+        // debug($answer);
 
         $this->set('answer', $answer);
         $this->set('_serialize', ['answer']);
@@ -50,6 +61,10 @@ class AnswersController extends AppController
      */
     public function add()
     {
+        if($this->Auth->user('role') == 'student'){
+          $this->Flash->error('You are not authorized to access this location');
+          return $this->redirect(['controller' => 'Pages', 'action' => 'display']);
+        }
         $answer = $this->Answers->newEntity();
         if ($this->request->is('post')) {
             $answer = $this->Answers->patchEntity($answer, $this->request->getData());
@@ -74,9 +89,14 @@ class AnswersController extends AppController
      */
     public function edit($id = null)
     {
-        $answer = $this->Answers->get($id, [
-            'contain' => []
-        ]);
+      if($this->Auth->user('role') == 'student'){
+        $this->Flash->error('You are not authorized to access this location');
+        return $this->redirect(['controller' => 'Pages', 'action' => 'display']);
+      }
+      $answer = $this->Answers->find()
+                ->where(['id' => $id])
+                ->toArray();
+
         if ($this->request->is(['patch', 'post', 'put'])) {
             $answer = $this->Answers->patchEntity($answer, $this->request->getData());
             if ($this->Answers->save($answer)) {
@@ -100,6 +120,10 @@ class AnswersController extends AppController
      */
     public function delete($id = null)
     {
+        if($this->Auth->user('role') != 'admin'){
+          $this->Flash->error('You are not authorized to access this location');
+          return $this->redirect(['controller' => 'Pages', 'action' => 'display']);
+        }
         $this->request->allowMethod(['post', 'delete']);
         $answer = $this->Answers->get($id);
         if ($this->Answers->delete($answer)) {

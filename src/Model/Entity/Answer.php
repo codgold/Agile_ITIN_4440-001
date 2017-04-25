@@ -7,11 +7,12 @@ use Cake\ORM\Entity;
  * Answer Entity
  *
  * @property int $id
- * @property int $question_id
  * @property string $answer_text
+ * @property int $question_id
  *
  * @property \App\Model\Entity\Question $question
- */class Answer extends Entity
+ */
+class Answer extends Entity
 {
 
     /**

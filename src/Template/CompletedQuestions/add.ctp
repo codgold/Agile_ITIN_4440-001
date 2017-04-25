@@ -13,6 +13,8 @@
         <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Questions'), ['controller' => 'Questions', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Question'), ['controller' => 'Questions', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Games'), ['controller' => 'Games', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Game'), ['controller' => 'Games', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="completedQuestions form large-9 medium-8 columns content">
@@ -22,6 +24,7 @@
         <?php
             echo $this->Form->control('date_answered');
             echo $this->Form->control('correct');
+            echo $this->Form->control('game_id', ['options' => $games]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

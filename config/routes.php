@@ -50,13 +50,15 @@ Router::scope('/', function (RouteBuilder $routes) {
      * to use (in this case, src/Template/Pages/home.ctp)...
      */
     $routes->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
-    $routes->connect('/admin', ['controller' => 'Pages', 'action' => 'display', 'admin']);
+    $routes->connect('/admin', ['controller' => 'admin', 'action' => 'index']);
 
     /**
      * ...and connect the rest of 'Pages' controller's URLs.
      */
     $routes->connect('/pages/*', ['controller' => 'Pages', 'action' => 'display']);
+    $routes->connect('/users/view/*', ['controller' => 'Admin', 'action' => 'individualScores']);
 
+    $routes->connect('/games/game/*', ['controller' => 'Games', 'action' => 'game', $this->Auth->user('id')]);
     /**
      * Connect catchall routes for all controllers.
      *

@@ -8,15 +8,18 @@ use Cake\ORM\Entity;
  *
  * @property int $id
  * @property int $answer_id
- * @property int $user_id
- * @property int $question_id
  * @property \Cake\I18n\Time $date_answered
  * @property bool $correct
+ * @property int $user_id
+ * @property int $question_id
+ * @property int $game_id
  *
  * @property \App\Model\Entity\Answer $answer
  * @property \App\Model\Entity\User $user
  * @property \App\Model\Entity\Question $question
- */class CompletedQuestion extends Entity
+ * @property \App\Model\Entity\Game $game
+ */
+class CompletedQuestion extends Entity
 {
 
     /**

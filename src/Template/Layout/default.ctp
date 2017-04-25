@@ -44,12 +44,21 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" href="/agileproject">Agile Project</a>
+        <a class="navbar-brand" href="/agileproject">Citizenship Test </a>
       </div>
       <ul class="nav navbar-nav">
-        <li class="active"><a href="/agileproject">Home</a></li>
-        <li><a href="/agileproject/pages/game">Game</a></li>
-        <li><a href="/agileproject/pages/admin">Admin</a></li>
+        <li <?= ($this->fetch('title')== "Pages") ? "class = 'active'" : ""?>><a href="/agileproject">Home</a></li>
+        <li <?= ($this->fetch('title')== "Game") ? "class = 'active'" : "" ?>><a href="/agileproject/games/game">Game</a></li>
+        <?php $session = $this->request->session();
+              $user = $session->read('Auth.User');
+              $role = $user['role'];
+              if( $role != 'student'): ?>
+          <li <?= ($this->fetch('title')== "Admin") ? "class = 'active'" : ""?>><a href="/agileproject/admin">Admin</a></li>
+        <?php endif; ?>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><?= $this->Html->link('Logout', ['controller'=> 'users', 'action'=>'logout'])?>
       </ul>
     </div>
   </nav>

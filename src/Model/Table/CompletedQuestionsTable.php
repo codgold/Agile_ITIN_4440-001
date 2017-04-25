@@ -12,6 +12,7 @@ use Cake\Validation\Validator;
  * @property \Cake\ORM\Association\BelongsTo $Answers
  * @property \Cake\ORM\Association\BelongsTo $Users
  * @property \Cake\ORM\Association\BelongsTo $Questions
+ * @property \Cake\ORM\Association\BelongsTo $Games
  *
  * @method \App\Model\Entity\CompletedQuestion get($primaryKey, $options = [])
  * @method \App\Model\Entity\CompletedQuestion newEntity($data = null, array $options = [])
@@ -20,7 +21,8 @@ use Cake\Validation\Validator;
  * @method \App\Model\Entity\CompletedQuestion patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
  * @method \App\Model\Entity\CompletedQuestion[] patchEntities($entities, array $data, array $options = [])
  * @method \App\Model\Entity\CompletedQuestion findOrCreate($search, callable $callback = null, $options = [])
- */class CompletedQuestionsTable extends Table
+ */
+class CompletedQuestionsTable extends Table
 {
 
     /**
@@ -49,6 +51,10 @@ use Cake\Validation\Validator;
             'foreignKey' => 'question_id',
             'joinType' => 'INNER'
         ]);
+        $this->belongsTo('Games', [
+            'foreignKey' => 'game_id',
+            'joinType' => 'INNER'
+        ]);
     }
 
     /**
@@ -60,11 +66,19 @@ use Cake\Validation\Validator;
     public function validationDefault(Validator $validator)
     {
         $validator
-            ->integer('id')            ->allowEmpty('id', 'create');
+            ->integer('id')
+            ->allowEmpty('id', 'create');
+
         $validator
-            ->date('date_answered')            ->requirePresence('date_answered', 'create')            ->notEmpty('date_answered');
+            ->date('date_answered')
+            ->requirePresence('date_answered', 'create')
+            ->notEmpty('date_answered');
+
         $validator
-            ->boolean('correct')            ->requirePresence('correct', 'create')            ->notEmpty('correct');
+            ->boolean('correct')
+            ->requirePresence('correct', 'create')
+            ->notEmpty('correct');
+
         return $validator;
     }
 
@@ -80,6 +94,7 @@ use Cake\Validation\Validator;
         $rules->add($rules->existsIn(['answer_id'], 'Answers'));
         $rules->add($rules->existsIn(['user_id'], 'Users'));
         $rules->add($rules->existsIn(['question_id'], 'Questions'));
+        $rules->add($rules->existsIn(['game_id'], 'Games'));
 
         return $rules;
     }

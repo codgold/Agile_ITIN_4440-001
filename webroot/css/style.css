@@ -1,4 +1,102 @@
-.card
-{
+
+.center{
+	color: balck;
+	text-align: center;
+}
+.container,.clearfix{
+	background-color: rgba(0,0,0,0);
+}
+
+.card{
+	width: 100%;
+	background-color: white;
+	font-size: 50px;
+
      text-align: center;
+     border: 0px solid black;
+     border-radius: 4px;
+     padding-bottom: 30px;
+      -webkit-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.27);
+-moz-box-shadow:    0px 0px 20px 0px rgba(0, 0, 0, 0.27);
+box-shadow:         0px 0px 20px 0px rgba(0, 0, 0, 0.27);
+
+}
+h1{font-size: 50px;
+	padding-bottom: 0px;
+	padding: 0px;
+	margin-top: 30px;
+	margin-bottom: 0px;
+
+}
+.form-control{
+	color: black;
+	border-color: black;
+	border-width: 2px;
+}
+.input{
+
+margin: 30px;
+}
+.input, .form-control{
+	height: 100%;
+	font-size: 50px;
+	
+}
+
+.btn{
+border: 0px black solid;
+display: inline;
+width: 250px;
+max-width: 100%;
+background-color: #0074c1;
+font-size: 50px;
+color: white; 
+
+}
+.btn:hover {
+color: white;
+ -webkit-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.67);
+-moz-box-shadow:    0px 0px 20px 0px rgba(0, 0, 0, 0.67);
+box-shadow:         0px 0px 20px 0px rgba(0, 0, 0, 0.67);
+
+}
+
+.cancel{
+background-color: #b00000 !important;
+margin-right: 15px;
+}
+
+textarea:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[type="week"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="color"]:focus,
+.uneditable-input:focus {   
+  border-color: rgba(0, 0, 0, 0.8);
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.075) inset, 0 0 20px rgba(0, 0, 0, 0.86);
+  outline: 0 none;
+}
+
+
+body{
+
+background:   linear-gradient(
+      rgba(0, 0, 0, 0.45), 
+      rgba(0, 0, 0, 0.45)
+    ), url(../img/flag.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
 }

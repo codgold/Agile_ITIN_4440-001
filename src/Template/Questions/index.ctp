@@ -3,7 +3,7 @@
   * @var \App\View\AppView $this
   */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
+<!-- <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Html->link(__('New Question'), ['action' => 'add']) ?></li>
@@ -12,13 +12,14 @@
         <li><?= $this->Html->link(__('List Completed Questions'), ['controller' => 'CompletedQuestions', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Completed Question'), ['controller' => 'CompletedQuestions', 'action' => 'add']) ?></li>
     </ul>
-</nav>
-<div class="questions index large-9 medium-8 columns content">
+</nav> -->
+<div class="questions index large-9 medium-8 columns content" style="background:white; padding:30px; border-radius:4px">
     <h3><?= __('Questions') ?></h3>
-    <table cellpadding="0" cellspacing="0">
+    <table class="table" cellpadding="0" cellspacing="0">
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('question_text') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -26,6 +27,7 @@
             <?php foreach ($questions as $question): ?>
             <tr>
                 <td><?= $this->Number->format($question->id) ?></td>
+                <td><?= $question->question_text ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $question->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $question->id]) ?>

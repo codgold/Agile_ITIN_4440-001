@@ -24,10 +24,16 @@ class UsersController extends AppController
      */
     public function index()
     {
-        $users = $this->paginate($this->Users);
+        if($this->Auth->user('role') == 'admin' || $this->Auth->user('role') == 'teacher'){
+          $users = $this->paginate($this->Users);
 
-        $this->set(compact('users'));
-        $this->set('_serialize', ['users']);
+          $this->set(compact('users'));
+          $this->set('_serialize', ['users']);
+        }
+        else{
+          $this->Flash->error('You are not authorized to access this location');
+          return $this->redirect(['controller' => 'Pages', 'action' => 'display']);
+        }
     }
 
     /**
@@ -39,6 +45,10 @@ class UsersController extends AppController
      */
     public function view($id = null)
     {
+        if($this->Auth->user('role') == 'student'){
+          $this->Flash->error('You are not authorized to access this location');
+          return $this->redirect(['controller' => 'Pages', 'action' => 'display']);
+        }
         $user = $this->Users->get($id, [
             'contain' => []
         ]);
@@ -58,6 +68,8 @@ class UsersController extends AppController
         $date = Date::now();
         if ($this->request->is('post')) {
             $user = $this->Users->patchEntity($user, $this->request->getData());
+            $user['active'] = 0;
+            $user['role'] = "student";
             $user['date_created'] = $date;
             $user['date_modified'] = $date;
             if ($this->Users->save($user)) {
@@ -80,12 +92,32 @@ class UsersController extends AppController
      */
     public function edit($id = null)
     {
+        if($this->Auth->user('role') == 'student'){
+          $this->Flash->error('You are not authorized to access this location');
+          return $this->redirect(['controller' => 'Pages', 'action' => 'display']);
+        }
         $user = $this->Users->get($id, [
             'contain' => []
         ]);
+
+        $role = $user['role'];
+
         $date = Date::now();
         if ($this->request->is(['patch', 'post', 'put'])) {
             $user = $this->Users->patchEntity($user, $this->request->getData());
+            if($user['role'] == '0'){
+              $user['role'] = $role;
+            }
+            if($user['role'] == '1'){
+              $user['role'] = 'admin';
+            }
+            if($user['role'] == '2'){
+              $user['role'] = 'student';
+            }
+            if($user['role'] == '3'){
+              $user['role'] = 'teacher';
+            }
+            debug($user);
             $user['date_modified'] = $date;
             if ($this->Users->save($user)) {
                 $this->Flash->success(__('The user has been saved.'));
@@ -107,6 +139,10 @@ class UsersController extends AppController
      */
     public function delete($id = null)
     {
+        if($this->Auth->user('role') != 'admin'){
+          $this->Flash->error('You are not authorized to access this location');
+          return $this->redirect(['controller' => 'Pages', 'action' => 'display']);
+        }
         $this->request->allowMethod(['post', 'delete']);
         $user = $this->Users->get($id);
         if ($this->Users->delete($user)) {
@@ -118,13 +154,8 @@ class UsersController extends AppController
         return $this->redirect(['action' => 'index']);
     }
 
-    public function beforeFilter(Event $event)
-   {
-       parent::beforeFilter($event);
-       // Allow users to register and logout.
-       // You should not add the "login" action to allow list. Doing so would
-       // cause problems with normal functioning of AuthComponent.
-       $this->Auth->allow(['add', 'logout']);
+    public function beforeFilter(Event $event){
+       $this->Auth->allow(['add','logout']);
    }
 
    public function login()
@@ -144,3 +175,23 @@ class UsersController extends AppController
        return $this->redirect($this->Auth->logout());
    }
 }
+
+// Admin can access every action
+//  if (isset($user['role']) && $user['role'] === 'teacher' &&
+//  ($this->request->getParam('action') === 'add' ||
+//  $this->request->getParam('action') === 'view' ||
+//  $this->request->getParam('action') === 'index' ||
+//  $this->request->getParam('action') === 'edit')) {
+//    return true;
+//  }
+//
+//  if ($this->request->getParam('action') === 'add') {
+//    return true;
+//  }
+//
+//  if ($this->request->getParam('action') === 'logout') {
+//    return true;
+//  }
+//
+//  // Default deny
+//  return false;

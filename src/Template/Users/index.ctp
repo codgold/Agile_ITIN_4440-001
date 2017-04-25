@@ -3,25 +3,19 @@
   * @var \App\View\AppView $this
   */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New User'), ['action' => 'add']) ?></li>
-    </ul>
-</nav>
-<div class="users index large-9 medium-8 columns content">
+<div class="row" style="background:white; padding:30px; border-radius:4px">
     <h3><?= __('Users') ?></h3>
-    <table cellpadding="0" cellspacing="0">
+    <table class="table"  cellpadding="0" cellspacing="0">
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('username') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('first_name') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('last_name') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('password') ?></th>
+                <!-- <th scope="col"><?= $this->Paginator->sort('password') ?></th> -->
                 <th scope="col"><?= $this->Paginator->sort('role') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('date_created') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('date_modified') ?></th>
+                <!-- <th scope="col"><?= $this->Paginator->sort('date_modified') ?></th> -->
                 <th scope="col"><?= $this->Paginator->sort('active') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
@@ -33,11 +27,11 @@
                 <td><?= h($user->username) ?></td>
                 <td><?= h($user->first_name) ?></td>
                 <td><?= h($user->last_name) ?></td>
-                <td><?= h($user->password) ?></td>
+                <!-- <td><?= h($user->password) ?></td> -->
                 <td><?= h($user->role) ?></td>
                 <td><?= h($user->date_created) ?></td>
-                <td><?= h($user->date_modified) ?></td>
-                <td><?= h($user->active) ?></td>
+                <!-- <td><?= h($user->date_modified) ?></td> -->
+                <td><?= h($user->active)?'yes':'no' ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $user->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $user->id]) ?>
